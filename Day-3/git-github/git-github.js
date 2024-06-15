@@ -20,3 +20,11 @@
 
 // created new branch feature which is temp branch
 // wrote some code to add new feature to app
+
+// merging code -> means code is changed in one branch then is has to be push into main branch
+// git diff <- branch name ->  (to compare commits,branches,files and more)
+// git merge <- branch name -> (to merge 2 branches)
+//      or 
+// create a PR
+
+// Pull request(PR) -> it lets you tell others about changes you have pushed to a branch in a repo in github
