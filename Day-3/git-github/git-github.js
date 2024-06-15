@@ -17,3 +17,6 @@
 // git checkout <- branch name ->  (to navigate)
 // git checkout -b <- new branch name ->   (to create new branch)
 // git branch -d <- branch name -> (to delete branch)
+
+// basic command
+// git pull origin main -> used to fetch and download content from a remote repo and immediately update the local repo to match that content 
