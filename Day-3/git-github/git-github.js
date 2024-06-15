@@ -25,3 +25,20 @@
 // git pull origin main -> used to fetch and download content from a remote repo and immediately update the local repo to match that content
 
 // merge conflicts -> an event that takes place when git is unable to automatically resolve differences in code between two commits
+
+// git log -> describes how many and what commits is done
+
+// Fixing mistakes
+// case-1 : staged changes -> if we add file through (git add .) to unstage it below cmd is used
+//          git reset <- filename ->
+//          git reset
+
+// case-2 : commited changes (for one commit)
+//          git reset HEAD~1
+
+// case-3 : commited changes (for many commit)
+//          git reset <- commit hash ->
+//          git reset --hard <- commit hash ->  // by hard after that perticular commit hash whatever is commited can't be seen 
+
+// Forking -> a fork is a new repo that shares code and visibility settings with the original upstream repo.
+// fork is a rough copy.
