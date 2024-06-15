@@ -17,3 +17,6 @@
 // git checkout <- branch name ->  (to navigate)
 // git checkout -b <- new branch name ->   (to create new branch)
 // git branch -d <- branch name -> (to delete branch)
+
+// created new branch feature which is temp branch
+// wrote some code to add new feature to app
