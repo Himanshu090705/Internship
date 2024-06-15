@@ -23,3 +23,5 @@
 
 // basic command
 // git pull origin main -> used to fetch and download content from a remote repo and immediately update the local repo to match that content
+
+// merge conflicts -> an event that takes place when git is unable to automatically resolve differences in code between two commits
