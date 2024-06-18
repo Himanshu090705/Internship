@@ -30,7 +30,7 @@ classList.remove()      // to remove class
 classList.contains()    // to check if class exists
 classList.toggle()      // to toggle between add and remove
 
-// We can set class by to method 1) classList.add() and 2) setAttribute('class','classname')
+// We can set class by two method 1) classList.add() and 2) setAttribute('class','classname')
 // But the major difference is that in classList we can add multiple class, but in setAttribute we can set only one class if we set another class than previous will be automatically removed
 
 // Navigation -> 1) parentElement    2) children  3) previousElementSibling/nextElementSibling
