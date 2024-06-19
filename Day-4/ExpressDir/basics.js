@@ -12,6 +12,3 @@
 // 4) send suitable response
 
 // Port -> ports are logical endpoints of a network connection that is a used to exchange information between a webserver and webclient
-
-// <------------------------------------------------------------------------------------------>
-// Day-5 EJS

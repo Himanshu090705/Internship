@@ -92,6 +92,4 @@
 //     res.send(`Results for query: ${q} `);
 // });
 
-// <------------------------------------------------------------------------------------------>
-// Day-5 EJS
-
+// To run nodemon first of all go to package.json of this folder and copy scripts key value pair and write npm run nodemon in terminal
