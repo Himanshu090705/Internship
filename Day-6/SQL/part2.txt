@@ -1,0 +1,197 @@
+Where clause ->  to define some conditions
+SELECT col1,col2 
+FROM tablename
+WHERE conditions;
+
+Operators   ->
+Arithmetic  -> +,-,*,/,%
+Comparison  -> =,!=,>,>=,<,<=
+Logical     -> AND,OR,NOT,IN,BETWEEN,ALL,LIKE,ANY
+Bitwise     -> &,|
+
+Frequently Used Operators ->
+AND     -> to check for both conditions to be true
+OR      -> to check for one of the conditions to be true
+BETWEEN -> selects for a given range
+IN      -> matches any value in the list
+NOT     -> to negate the given condition
+
+LIMIT Clause -> sets an upper limit on number of (tuples) rows to be returned
+SELECT col1,col2 
+FROM tablename
+LIMIT number;
+
+Order By Clause -> To sort ascending(ASC) or descending(DESC)
+SELECT col1,col2 
+FROM tablename
+ORDER BY colname ASC; 
+
+Aggregate Functions -> perform a calculation on a set of values, and return a single value.
+                    -> COUNT(), MAX(), MIN(), SUM(), AVG()
+Example:
+SELECT max(marks)
+FROM student; 
+
+Group By Clause -> Groups rows that have the same values into summary rows.
+                -> It collects data from multiple records and groups the result by one or more column.
+                -> Generally we use group by with some aggregation function. 
+SELECT col1,col2
+FROM tablename
+GROUP BY colname;
+
+Having Clause -> Similer to where i.e. applies to some conditions on rows.
+              -> But it is used when we want to apply any condition after grouping.
+              -> WHERE is for the table, HAVING is for a group
+              -> Grouping is necessary for HAVING
+SELECT col1,col2
+FROM tablename
+GROUP BY colname
+HAVING condition;
+
+General Order
+SELECT cols
+FROM tablename
+WHERE condition
+GROUP BY cols
+HAVING condition
+ORDER BY cols ASC;
+
+Update Query -> to update existing rows
+UPDATE tablename
+SET col1=val1,col2=val2
+WHERE condition;
+
+Delete Query -> to delete existing rows
+DELETE FROM tablename
+WHERE condition;
+
+Alter Query -> to change the schema
+
+ADD column
+ALTER TABLE tablename
+ADD COLUMN colname datatype constraint;
+
+DROP column
+ALTER TABLE tablename
+DROP COLUMN colname;
+
+RENAME Table
+ALTER TABLE tablename
+RENAME TO new_table_name;
+
+CHANGE column(rename)
+ALTER TABLE tablename
+CHANGE COLUMN old_name new_colname new_datatype new_constraint;
+
+MODIFY column(modify datatype/constraint)
+ALTER TABLE tablename
+MODIFY COLUMN col_name new_datatype new_constraint;
+
+Truncate -> to delete table's data
+TRUNCATE TABLE table_name;
+
+Practice Qs -> Create a database for your college.
+            -> Create a table named teacher to store (id,name,subject,salary)
+            -> Insert following in the table:
+
+CREATE DATABASE IF NOT EXISTS college;
+
+USE college;  
+
+CREATE TABLE teacher(
+    id INT(10) PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    subject VARCHAR(50),
+    salary INT(10)
+);
+
+INSERT INTO teacher
+(id,name,subject,salary)
+VALUES
+(23,"ajay","math",50000),
+(47,"bharat","english",60000),
+(18,"chetan","chemistry",45000),
+(9,"divya","physics",75000);
+
+SELECT * FROM teacher;
+
+-> Select teachers whose salary is more than 55k
+SELECT * FROM teacher
+WHERE salary>55000;
+
+-> Rename the salary column of teacher table to ctc
+ALTER TABLE teacher
+CHANGE COLUMN salary ctc INT;
+
+-> Update salary of all teachers by giving them an increment of 25%
+UPDATE teacher
+SET ctc  = ctc + 0.25 * ctc;
+
+-> Add a new column for teachers called city.The default city should be "Gurgaon"
+ALTER TABLE teacher
+ADD COLUMN city VARCHAR(50) DEFAULT "Gurgaon";
+
+-> Delete the salary column for the teacher table
+ALTER TABLE teacher
+DROP COLUMN ctc;
+
+Practice Qs -> Create a table named teacher to store (rollno,name,city,marks)
+            -> Insert following in the table:
+
+CREATE TABLE student(
+    rollno INT(10) PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    city VARCHAR(50),
+    marks INT(10)
+);
+
+INSERT INTO student
+(rollno,name,city,marks)
+VALUES
+(23,"ajay","delhi",76),
+(47,"bharat","mumbai",65),
+(18,"chetan","pune",94),
+(9,"divya","pune",80);
+
+SELECT * FROM student;
+
+-> select all student who scored 75+
+SELECT * FROM student
+WHERE marks>75;
+
+-> find names of all city where students are from
+SELECT DISTINCT city 
+FROM student; 
+
+SELECT city 
+FROM student
+GROUP BY city; 
+
+-> find the max marks of student from each city
+SELECT city,MAX(marks)
+FROM student
+GROUP BY city;
+
+-> find the avg of class
+SELECT AVG(marks) 
+FROM student;
+
+-> add a new col grade, assign grade such that:
+        marks>80, grade=o
+        marks 70-80, grade=A
+        marks 60-70, grade=B
+
+ALTER TABLE student
+ADD COLUMN grade varchar(5);
+
+UPDATE student
+SET grade="O"
+WHERE marks>=80;
+
+UPDATE student
+SET grade="A"
+WHERE marks>=70 AND marks<=80;
+
+UPDATE student
+SET grade="B"
+WHERE marks>=60 AND marks<=70;

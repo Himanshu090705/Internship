@@ -1,0 +1,86 @@
+Database -> is a collection of data in a fomat that can be easily accessed
+
+Why databases?
+-> can store large data
+-> features like security, scalability etc.
+-> Easier to insert,update or delete data
+
+SQL v/s NoSQL
+SQL -> Relational Database (stored in table)
+    -> eg- MySQL,Oracle,PostgreSQL etc.
+
+NoSQL -> Non Relational Database (stored in document/key-val/graphs etc.)
+      -> eg- MongoDb,Cassandra,Neo4j etc.
+
+SQL(Structured Query Language) -> is a programming lang. used to interact with relational db.
+
+Database
+CREATE DATABASE db_name;
+DROP DATABASE db_name;
+USE db_name;
+
+Table
+CREATE TABLE table_name(
+    col1 datatype constraint,
+    col2 datatype constraint,
+    col3 datatype constraint
+);
+
+Database Queries
+CREATE DATABASE dbname;
+CREATE DATABASE IF NOT EXISIS dbname;
+DROP DATABASE dbname;
+DROP DATABASE IF EXISIS dbname;
+SHOW DATABASES;
+SHOW TABLES;
+
+Table Queries -> Create,Insert,Update,Alter,Truncate,Delete
+
+Create Table
+CREATE TABLE table_name(
+    col1 datatype constraint,
+    col2 datatype constraint,
+);
+
+Constraints -> Rules for data in the table
+NOT NULL    -> columns can't have a null val
+UNIQUE      -> all val in cols are different
+DEFAULT     -> sets the default val of a col
+CHECK       -> it can limit the vals allowed in a col
+
+salary INT DEFAULT 25000
+CONSTRAINT ageCheck CHECK (age>=18 AND city="Delhi");
+
+Key constraints ->
+PRIMERY KEY -> makes a col unique & not null but used only for one
+CREATE TABLE temp(
+    id int not null,
+    PRIMERY KEY(id)
+);
+
+FOREIGN KEY -> prevent actions that would destroy links between tables
+CREATE TABLE temp(
+    id int,
+    FOREIGN KEY(id) references customer(id)
+);
+
+Keys -> are special cols in the table
+
+Primary key -> is a col (or set of cols) in a table that uniquely identifies each row.(a unique id).
+            -> There is only 1 PK & it should be not null.
+
+Foreign Key -> is a col (or set of cols) in a table that refers to the PK in another table.
+            -> FKs can have duplicate & null values.
+            -> There can be multiple FKs.
+
+Insert Query ->
+INSERT INTO tableName
+(col1,col2)
+VALUES
+(col1_v1,col2_v1),
+(col1_v2,col2_v2);
+
+Select Query -> Selects and show data from the DB
+SELECT col1,col2 FROM tablename;
+SELECT * FROM tablename; (to show all)
+
