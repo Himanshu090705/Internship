@@ -1,0 +1,46 @@
+Collections
+Document -> Mongo stores data in form of documents(BSON docs)
+Collection -> MongoDB stores documents in collections.
+
+INSERT in DB -> insertOne
+
+show collections -> similler to show tables in sql
+
+db.student.insertOne({name:"adam",marks:79})
+
+db.student.find() -> shows data in the form of array
+
+if a collection does not exist, MongoDB creates the collection when you first store data for that collection.
+
+db.student.insertMany([{name:"bob",marks:65},{name:"eve",city:"delhi"}]) -> insertMany(array of documnets)
+
+FIND in DB ->
+db.collection.find() -> returns everything
+
+for specific queries
+db.collection.find({key:value}) -> returns only cursor(means a pointer or reference to original)
+db.collection.findOne({key:value}) -> returns original document
+
+Query Operators ->
+Q. Find students where marks>75
+db.student.find({marks:{$gt:75}})
+
+Q. Find students who live in delhi or mumbai
+db.student.find({city:{$in:["Delhi","Mumbai"]}})
+
+Q. Find students who scored>75 or live in delhi
+db.student.find({$or:[{marks:{$gt:75}},{city:"Delhi"}]})
+
+UPDATE in DB -> updateOne
+
+db.collection.updateOne(<filter>,<update>,<options>)
+db.student.updateOne({ name: "adam" }, { $set: { marks: 99 } })
+
+db.student.insertOne({ name: "casey", performance: { marks: 88, grade: "A" } })
+db.student.find({ "performance.marks": 88 })
+
+DELETE in DB ->
+db.collection.deleteOne(<filter>,<options>) -> deleteOne
+db.collection.deleteMany(<filter>,<options>) -> deleteMany
+
+db.dropDatabase() 
