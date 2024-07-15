@@ -1,0 +1,143 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <br />
+            <h3>Enter a New Listing</h3>
+            <form
+                action="/listings"
+                method="post"
+                novalidate
+                class="needs-validation"
+                enctype="multipart/form-data"
+            >
+                <div class="form-floating mb-3">
+                    <input
+                        type="text"
+                        name="listing[title]"
+                        class="form-control"
+                        id="floatingTitle"
+                        placeholder="Add a catchy Title"
+                        required
+                    />
+                    <label for="floatingTitle" class="form-label"
+                        ><i class="fa-solid fa-inbox"></i>&nbsp;Title</label
+                    >
+                    <div class="valid-feedback">Title Looks good!</div>
+                    <div class="invalid-feedback">
+                        Please provide a valid Title!
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea
+                        name="listing[description]"
+                        class="form-control"
+                        id="floatingDescription"
+                        placeholder="Description"
+                        required
+                    ></textarea>
+                    <label for="floatingDescription" class="form-label"
+                        ><i class="fa-solid fa-message"></i
+                        >&nbsp;Description</label
+                    >
+                    <div class="invalid-feedback">
+                        Please provide a valid Description!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label"
+                        ><i class="fa-solid fa-image"></i>&nbsp;Upload Image
+                    </label>
+                    <input
+                        type="file"
+                        name="listing[image]"
+                        class="form-control"
+                        required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label"
+                        ><i class="fa-solid fa-layer-group"></i>&nbsp;Category
+                    </label>
+                    <select
+                        class="form-select form-select-lg"
+                        name="listing[category]"
+                    >
+                        <option selected>Select Category</option>
+                        <option value="Amazing pools">Amazing pools</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Beaches">Beaches</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Castles">Castles</option>
+                        <option value="Iconic cities">Iconic cities</option>
+                        <option value="Mountain">Mountain</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="form-floating mb-3 col-md-4">
+                        <input
+                            type="number"
+                            name="listing[price]"
+                            placeholder="1200"
+                            class="form-control"
+                            id="floatingPrice"
+                            required
+                        />
+                        <label for="floatingPrice" class="form-label"
+                            >&nbsp;&nbsp;&nbsp;<i
+                                class="fa-solid fa-indian-rupee-sign"
+                            ></i
+                            >&nbsp;Price</label
+                        >
+                        <div class="invalid-feedback">
+                            Please enter a valid Price!
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3 col-md-8">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="floatingCountry"
+                            name="listing[country]"
+                            placeholder="India"
+                            required
+                        />
+                        <label for="floatingCountry" class="form-label"
+                            >&nbsp;&nbsp;&nbsp;<i
+                                class="fa-solid fa-earth-americas"
+                            ></i
+                            >&nbsp;Country</label
+                        >
+                        <div class="invalid-feedback">
+                            Please provide a valid Country!
+                        </div>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input
+                        type="text"
+                        name="listing[location]"
+                        placeholder="Surat, Gujarat "
+                        class="form-control"
+                        id="floatingLocation"
+                        required
+                    />
+                    <label for="floatingLocation" class="form-label"
+                        ><i class="fa-solid fa-location-dot"> </i
+                        >&nbsp;Location</label
+                    >
+                    <div class="invalid-feedback">
+                        Please provide a valid Location!
+                    </div>
+                </div>
+
+                <br />
+
+                <button class="btn btn-dark add-btn">
+                    <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;Add
+                </button>
+                <br /><br />
+            </form>
+        </div>
+    </div>
+</body>

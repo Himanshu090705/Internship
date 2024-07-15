@@ -84,8 +84,6 @@ let jsonResponse = JSON.stringify(student);
 
 // http headers -> used to supply additional info into req. as well as res.
 
-
-
 // First api request -> APIs can be requested through fetch keyword.
 let url = "https://catfact.ninja/fact";
 // let url = "https://v2.jokeapi.dev/joke/Any?safe-mode";
@@ -137,12 +135,12 @@ let url = "https://catfact.ninja/fact";
 
 // Using fetch with async
 async function getFacts() {
-    try{
+    try {
         let res = await fetch(url);
         let data = await res.json();
         console.log(data);
-    }catch(err){
-        console.log("Error -",err);
+    } catch (err) {
+        console.log("Error -", err);
     }
 }
 

@@ -1,0 +1,123 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <br />
+            <h3>Edit Listing</h3>
+            <form
+                action="/listings/<%= listing.id %>?_method=put"
+                method="post"
+                novalidate
+                class="needs-validation"
+                enctype="multipart/form-data"
+            >
+                <div class="mb-3">
+                    <label for="title" class="form-label"
+                        ><i class="fa-solid fa-inbox"></i>&nbsp;Title</label
+                    >
+                    <input
+                        type="text"
+                        name="listing[title]"
+                        class="form-control"
+                        required
+                        value="<%= listing.title %>"
+                    />
+                    <div class="valid-feedback">Title Looks good!</div>
+                    <div class="invalid-feedback">
+                        Please provide a valid Title!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label"
+                        ><i class="fa-solid fa-message"></i
+                        >&nbsp;Description</label
+                    >
+                    <textarea
+                        name="listing[description]"
+                        class="form-control"
+                        required
+                    >
+<%= listing.description %></textarea
+                    >
+                    <div class="invalid-feedback">
+                        Please provide a valid Description!
+                    </div>
+                </div>
+                <div class="mb-3 col-3">
+                    Original Image<br />
+                    <img src="<%= originalImageUrl %>" alt="" />
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label"
+                        ><i class="fa-solid fa-image"></i>&nbsp;Upload Image
+                    </label>
+                    <input
+                        type="file"
+                        name="listing[image]"
+                        class="form-control"
+                    />
+                    <div class="invalid-feedback">
+                        Please provide a valid Image!
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label"
+                            ><i class="fa-solid fa-indian-rupee-sign"></i
+                            >&nbsp;Price</label
+                        >
+                        <input
+                            type="number"
+                            name="listing[price]"
+                            required
+                            class="form-control"
+                            value="<%= listing.price %>"
+                        />
+                        <div class="invalid-feedback">
+                            Please enter a valid Price!
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label"
+                            ><i class="fa-solid fa-earth-americas"></i
+                            >&nbsp;Country</label
+                        >
+                        <input
+                            type="text"
+                            name="listing[country]"
+                            class="form-control"
+                            required
+                            value="<%= listing.country %>"
+                        />
+                        <div class="invalid-feedback">
+                            Please provide a valid Country!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label"
+                        ><i class="fa-solid fa-location-dot"> </i
+                        >&nbsp;Location</label
+                    >
+                    <input
+                        type="text"
+                        name="listing[location]"
+                        class="form-control"
+                        required
+                        value="<%= listing.location %>"
+                    />
+                    <div class="invalid-feedback">
+                        Please provide a valid Location!
+                    </div>
+                </div>
+                <button class="btn btn-dark edit-btn mt-3">
+                    <i class="fa-solid fa-file-pen"></i>&nbsp;Edit
+                </button>
+                <br /><br />
+            </form>
+        </div>
+    </div>
+</body>
